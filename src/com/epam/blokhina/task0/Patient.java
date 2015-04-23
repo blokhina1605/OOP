@@ -35,9 +35,9 @@ public class Patient {
         setLastName(lastName);
         setFirstName(firstName);
         setPatronymic(patronymic);
-        address = "";
+        address = "--";
         id = ++count;
-        medicalNumber = 100+id;
+        medicalNumber = 1000 + id;
         diagnosis = "unknown disease";
     }
 
@@ -91,5 +91,36 @@ public class Patient {
 
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
+    }
+
+    public static void getPatientsByMedicalNumber(int min, int max, Patient[] patients) {
+        if (max < min) {
+            int tmp = min;
+            min = max;
+            max = tmp;
+        }
+        for (Patient patient : patients) {
+            if (patient.getMedicalNumber() >= min && patient.getMedicalNumber() <= max) {
+                System.out.println(patient);
+            }
+        }
+    }
+    public static void getPatientsByDiagnosis(String diagnosis, Patient[] patients){
+        for (Patient patient : patients) {
+            if(patient.getDiagnosis().equals(diagnosis)){
+                System.out.println(patient);
+            }
+        }
+    }
+
+
+    @Override
+    public String toString() {
+        return "Patient " + lastName + " " + firstName + " " + patronymic +
+                ", id: " + id +
+                ".   Address: " + address +
+                ", medicalNumber: " + medicalNumber +
+                ", diagnosis: " + diagnosis  +
+                '}';
     }
 }
