@@ -3,15 +3,15 @@ package com.epam.blokhina.task1;
 /**
  * Created by Yevheniia_Blokhina on 4/22/2015.
  */
-public abstract class Base {
-    private String name;
-    private int quantity;
+public abstract class Product {
+    protected String name;
+    protected int quantity;
     private double price;
     private static double averPrice;
     private static int totalQuantity;
 
 
-    public Base(String name, int price, int quantity) {
+    Product(String name, int price, int quantity) {
         setName(name);
         setPrice(price);
         setQuantity(quantity);
@@ -19,7 +19,7 @@ public abstract class Base {
         averPrice +=price;
     }
 
-    public Base() {
+    Product() {
         totalQuantity++;
         averPrice +=this.getPrice();
     }

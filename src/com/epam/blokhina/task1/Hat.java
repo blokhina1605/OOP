@@ -3,7 +3,7 @@ package com.epam.blokhina.task1;
 /**
  * Created by Yevheniia_Blokhina on 4/22/2015.
  */
-public class Hat extends Base {
+public class Hat extends Product {
     private String marking;
     private int quantity;
     private String type;
@@ -42,5 +42,14 @@ public class Hat extends Base {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Hat{" +
+                "marking='" + marking + '\'' +
+                ", quantity=" + quantity +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

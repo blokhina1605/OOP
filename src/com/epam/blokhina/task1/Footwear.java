@@ -3,7 +3,7 @@ package com.epam.blokhina.task1;
 /**
  * Created by Yevheniia_Blokhina on 4/22/2015.
  */
-public class Footwear extends Base {
+public class Footwear extends Product {
     private String color;
     private int size;
 
