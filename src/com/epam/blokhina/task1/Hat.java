@@ -8,22 +8,13 @@ public class Hat extends Product {
     private int quantity;
     private String type;
 
-    public Hat(String name, int price, int quantity, String marking, String type) {
+    public Hat(String name, double price, int quantity, String type) {
         super(name, price, quantity);
-        setMarking(marking);
         setType(type);
         setQuantity(quantity);
     }
 
     public Hat() {
-    }
-
-    public String getMarking() {
-        return marking;
-    }
-
-    public void setMarking(String marking) {
-        this.marking = marking;
     }
 
     @Override
@@ -33,7 +24,7 @@ public class Hat extends Product {
 
     @Override
     public void setQuantity(int quantity) {
-        this.quantity = quantity * 10;
+        this.quantity = quantity ;
     }
 
     public String getType() {
@@ -46,10 +37,10 @@ public class Hat extends Product {
 
     @Override
     public String toString() {
-        return "Hat{" +
-                "marking='" + marking + '\'' +
-                ", quantity=" + quantity +
-                ", type='" + type + '\'' +
+        return name +"{" +
+                "price:" + price +
+                ", quant:" + quantity +
+                ", type: '" + type + '\'' +
                 '}';
     }
 }

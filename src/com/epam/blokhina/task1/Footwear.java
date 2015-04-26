@@ -10,7 +10,7 @@ public class Footwear extends Product {
     public Footwear() {
     }
 
-    public Footwear(String name, int price, int quantity, String color, int size) {
+    public Footwear(String name, double price, int quantity, String color, int size) {
         super(name, price, quantity);
         setColor(color);
         setSize(size);
@@ -34,5 +34,15 @@ public class Footwear extends Product {
         } else {
             this.size = size;
         }
+    }
+
+    @Override
+    public String toString() {
+        return name +"{" +
+                "price:" + price +
+                ", quant:" + quantity +
+                ", color:'" + color + '\'' +
+                ", size:" + size +
+                '}';
     }
 }

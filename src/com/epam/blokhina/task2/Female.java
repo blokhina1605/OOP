@@ -19,8 +19,9 @@ public class Female extends Person {
     }
 
     public Person giveBirth(Person person) {
+        System.out.println("--------");
         Person child = isaBoolean(0.5) ? getPerson(this, person) : null;
-        if (child == null) System.out.println("Sorry. Nothing happend..");
+        if (child == null) System.out.println("Nothing happened. Sorry, they tried..");
         return child;
     }
 

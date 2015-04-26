@@ -6,12 +6,12 @@ package com.epam.blokhina.task1;
 public abstract class Product {
     protected String name;
     protected int quantity;
-    private double price;
+    protected double price;
     private static double averPrice;
     private static int totalQuantity;
 
 
-    Product(String name, int price, int quantity) {
+    Product(String name, double price, int quantity) {
         setName(name);
         setPrice(price);
         setQuantity(quantity);
@@ -58,7 +58,7 @@ public abstract class Product {
         }
     }
 
-    public double getCost() {
+    public double getTotalCost() {
         double cost = quantity * price;
         return cost;
     }
@@ -68,4 +68,12 @@ public abstract class Product {
         System.out.println(averPrice);
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name:'" + name + '\'' +
+                ", quant: " + quantity +
+                ", price: " + price +
+                '}';
+    }
 }

@@ -61,12 +61,7 @@ public abstract class Person {
     }
 
     public boolean talk(Person person) {
-        return this.subTalk(person) ? true : getChanceOfTalk();
-    }
-
-    private static boolean getChanceOfTalk() {
-        Random r = new Random();
-        return r.nextDouble() <= 0.5 ? true : false;
+        return this.subTalk(person) ? true : isaBoolean(0.5);
     }
 
     private boolean subTalk(Person person) {
@@ -92,16 +87,30 @@ public abstract class Person {
     }
 
     public Person haveRelationship(Person person) {
+        System.out.print("===Person #1===");System.out.println(this);
+        System.out.print("===Person #2===");System.out.println(person);
         Person child = null;
-        if (this.talk(person)&&this.bearSociety(person)&&this.spendTimeTogether(person)) {
-            if (this.isGender()&&person.isGender()) return null;
+        System.out.println("-----Compatibility test-----");
+        boolean a = this.talk(person);
+        System.out.println("Can talk: " + a);
+        boolean b = this.bearSociety(person);
+        System.out.println("Can bear society: " + b);
+        boolean c = this.spendTimeTogether(person);
+        System.out.println("Can spend time together: " + c);
+
+        if (a && b && c) {
+            if (this.isGender() && person.isGender()) {
+                System.out.println("Unfortunately, they are the same gender");
+                return null;
+            }
             else {
                 if (this instanceof Female)
-                    child = ((Female)this).giveBirth(person);
+                    child = ((Female) this).giveBirth(person);
                 else
-                    child = ((Female)person).giveBirth(this);
+                    child = ((Female) person).giveBirth(this);
             }
         }
+        else System.out.println("They are not compatible");
         return child;
     }
 
@@ -111,14 +120,12 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        String genderstr = "boy";
-        if (!this.isGender()) genderstr = "girl";
-        return "Person{" +
-                "gender=" + genderstr +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+        String genderstr = "male";
+        if (!this.isGender()) genderstr = "female";
+        return
+                " gender=" + genderstr +
+                ", " + firstName + lastName +
                 ", height=" + height +
-                ", weight=" + weight +
-                '}';
+                ", weight=" + weight;
     }
 }
