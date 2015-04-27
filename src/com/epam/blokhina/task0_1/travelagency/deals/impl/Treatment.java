@@ -33,6 +33,6 @@ public class Treatment extends Deal {
                 ", nights: " + getNights() +
                 ", transport: " + getTransport() +
                 ", price: " + getPrice() +
-                " -- }" ;
+                "}" ;
     }
 }

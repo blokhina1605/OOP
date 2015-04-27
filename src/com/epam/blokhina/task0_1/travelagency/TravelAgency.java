@@ -2,6 +2,7 @@ package com.epam.blokhina.task0_1.travelagency;
 
 import com.epam.blokhina.task0_1.travelagency.deals.Country;
 import com.epam.blokhina.task0_1.travelagency.deals.Deal;
+import com.epam.blokhina.task0_1.travelagency.deals.Transports;
 import com.epam.blokhina.task0_1.travelagency.deals.impl.DealType;
 
 import java.util.*;
@@ -14,7 +15,7 @@ public class TravelAgency {
     boolean asc;
     int minPrice;
     int maxPrice;
-    Country countryFilter;
+    Transports transportFilter;
     DealType typeFilter;
 
     List<Deal> proposals;
@@ -25,12 +26,12 @@ public class TravelAgency {
         maxPrice = Integer.MAX_VALUE;
     }
 
-    public Country getCountryFilter() {
-        return countryFilter;
+    public Transports getTransportFilter() {
+        return transportFilter;
     }
 
-    public void setCountryFilter(Country countryFilter) {
-        this.countryFilter = countryFilter;
+    public void setTransportFilter(Transports transportFilter) {
+        this.transportFilter = transportFilter;
     }
 
     public SortField getSortField() {
@@ -102,8 +103,8 @@ public class TravelAgency {
     private boolean isAppropriate(Deal next) {
         boolean result = next.getPrice() < maxPrice
                 || next.getPrice() > minPrice;
-        if (countryFilter != null) {
-            result = result && next.getDestination().equals(countryFilter);
+        if (transportFilter != null) {
+            result = result && next.getTransport().equals(transportFilter);
         }
         if (typeFilter != null) {
             result = result && next.getType().equals(typeFilter);

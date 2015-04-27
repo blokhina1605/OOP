@@ -14,10 +14,9 @@ public class Tour extends Deal {
     private List<Country> destination;
     private List<String> sights;
 
-    //TODO:!!!!!!!!!!!!!!!
     @Override
     public Country getDestination() {
-        return Country.CANADA;
+        return destination.get(0);
     }
 
     public Tour(double price, boolean dining, int nights, Transports transport, List<Country> destination, List<String> sights) {
